@@ -33,7 +33,7 @@
 <!-- The text shown on the browser tab -->
 <title>Marny Brooker</title>
 
-<link rel="icon" type="image/png" href="LogoWebsite.png">
+<link rel="icon" type="image/png" href="./LogoWebsite.png?v=2">
 
 <!-- ``
   ============================================================
@@ -92,58 +92,63 @@
         // classes like `bg-primary`, `text-on-surface`, etc.
         //
         // 👉 TO CHANGE THE COLOR SCHEME: Edit the hex values below.
-        //    `primary` is the main brand color (currently purple/violet).
-        //    `secondary` is the accent color (currently rose/pink).
+        //    `primary` = buttons & links (black in light mode, white in dark).
+        //    `secondary` = the red accent (bullets, "2028", badges).
         //    `surface` tones control backgrounds and cards.
         // -------------------------------------------------------
         colors: {
-          "secondary-fixed": "#ffd9e1",           // light pink — used for badges/chips
-          "on-primary-container": "#e8e2ff",
-          "outline-variant": "#c8c4d9",           // subtle divider lines
-          "surface-variant": "#e2e2e2",
-          "secondary-fixed-dim": "#fdb2c6",
-          "on-surface-variant": "#474556",        // secondary text (captions, labels)
-          "surface-container-low": "#f3f3f3",
-          "inverse-primary": "#c7bfff",
-          "inverse-surface": "#2f3131",
-          "error-container": "#ffdad6",
-          "tertiary-container": "#666666",
-          "primary-fixed-dim": "#c7bfff",
-          "on-error": "#ffffff",
-          "tertiary-fixed": "#e2e2e2",
-          "outline": "#787588",
-          "on-secondary-fixed-variant": "#6c3647",
-          "surface-container-highest": "#e2e2e2",
-          "surface": "#f9f9f9",                   // main page background
-          "on-secondary": "#ffffff",
-          "on-tertiary": "#ffffff",
-          "secondary-container": "#fdb2c6",
-          "surface-container": "#eeeeee",          // slightly darker background for sections
-          "primary-container": "#6040ff",          // used in gradient buttons
-          "on-error-container": "#93000a",
-          "on-secondary-fixed": "#370b1c",
-          "background": "#f9f9f9",
-          "tertiary-fixed-dim": "#c6c6c6",
-          "surface-container-high": "#e8e8e8",     // card/button hover backgrounds
-          "on-background": "#1a1c1c",
-          "surface-dim": "#dadada",
-          "error": "#ba1a1a",
-          "on-tertiary-fixed-variant": "#474747",
-          "on-secondary-container": "#7a4152",
-          "on-tertiary-fixed": "#1b1b1b",
-          "tertiary": "#4e4e4e",
-          "on-primary": "#ffffff",                 // text on top of the primary color
-          "on-primary-fixed-variant": "#3f00dc",
-          "surface-container-lowest": "#ffffff",   // white — card backgrounds
-          "secondary": "#874d5e",                  // rose/mauve accent
-          "surface-bright": "#f9f9f9",
-          "primary-fixed": "#e4dfff",
-          "primary": "#4716e8",                    // 👉 MAIN BRAND COLOR — change this to repaint the whole site
-          "surface-tint": "#5834f7",
-          "on-tertiary-container": "#e5e5e5",
-          "on-primary-fixed": "#180065",
-          "on-surface": "#1a1c1c",                 // main body text color
-          "inverse-on-surface": "#f1f1f1"
+          // Every colour points at a CSS variable defined in the <style> block:
+          //   :root      = LIGHT mode values
+          //   html.dark  = DARK mode values
+          // The light/dark toggle just adds/removes the `dark` class on <html>.
+          // 👉 TO CHANGE A COLOUR: edit its --c-… value in the <style> block.
+          "primary": "rgb(var(--c-primary) / <alpha-value>)",
+          "primary-container": "rgb(var(--c-primary-container) / <alpha-value>)",
+          "on-primary": "rgb(var(--c-on-primary) / <alpha-value>)",
+          "on-primary-container": "rgb(var(--c-on-primary-container) / <alpha-value>)",
+          "primary-fixed": "rgb(var(--c-primary-fixed) / <alpha-value>)",
+          "primary-fixed-dim": "rgb(var(--c-primary-fixed-dim) / <alpha-value>)",
+          "on-primary-fixed": "rgb(var(--c-on-primary-fixed) / <alpha-value>)",
+          "on-primary-fixed-variant": "rgb(var(--c-on-primary-fixed-variant) / <alpha-value>)",
+          "inverse-primary": "rgb(var(--c-inverse-primary) / <alpha-value>)",
+          "surface-tint": "rgb(var(--c-surface-tint) / <alpha-value>)",
+          "secondary": "rgb(var(--c-secondary) / <alpha-value>)",
+          "on-secondary": "rgb(var(--c-on-secondary) / <alpha-value>)",
+          "secondary-container": "rgb(var(--c-secondary-container) / <alpha-value>)",
+          "on-secondary-container": "rgb(var(--c-on-secondary-container) / <alpha-value>)",
+          "secondary-fixed": "rgb(var(--c-secondary-fixed) / <alpha-value>)",
+          "secondary-fixed-dim": "rgb(var(--c-secondary-fixed-dim) / <alpha-value>)",
+          "on-secondary-fixed": "rgb(var(--c-on-secondary-fixed) / <alpha-value>)",
+          "on-secondary-fixed-variant": "rgb(var(--c-on-secondary-fixed-variant) / <alpha-value>)",
+          "tertiary": "rgb(var(--c-tertiary) / <alpha-value>)",
+          "on-tertiary": "rgb(var(--c-on-tertiary) / <alpha-value>)",
+          "tertiary-container": "rgb(var(--c-tertiary-container) / <alpha-value>)",
+          "on-tertiary-container": "rgb(var(--c-on-tertiary-container) / <alpha-value>)",
+          "tertiary-fixed": "rgb(var(--c-tertiary-fixed) / <alpha-value>)",
+          "tertiary-fixed-dim": "rgb(var(--c-tertiary-fixed-dim) / <alpha-value>)",
+          "on-tertiary-fixed": "rgb(var(--c-on-tertiary-fixed) / <alpha-value>)",
+          "on-tertiary-fixed-variant": "rgb(var(--c-on-tertiary-fixed-variant) / <alpha-value>)",
+          "error": "rgb(var(--c-error) / <alpha-value>)",
+          "on-error": "rgb(var(--c-on-error) / <alpha-value>)",
+          "error-container": "rgb(var(--c-error-container) / <alpha-value>)",
+          "on-error-container": "rgb(var(--c-on-error-container) / <alpha-value>)",
+          "background": "rgb(var(--c-background) / <alpha-value>)",
+          "on-background": "rgb(var(--c-on-background) / <alpha-value>)",
+          "surface": "rgb(var(--c-surface) / <alpha-value>)",
+          "surface-bright": "rgb(var(--c-surface-bright) / <alpha-value>)",
+          "surface-dim": "rgb(var(--c-surface-dim) / <alpha-value>)",
+          "surface-container-lowest": "rgb(var(--c-surface-container-lowest) / <alpha-value>)",
+          "surface-container-low": "rgb(var(--c-surface-container-low) / <alpha-value>)",
+          "surface-container": "rgb(var(--c-surface-container) / <alpha-value>)",
+          "surface-container-high": "rgb(var(--c-surface-container-high) / <alpha-value>)",
+          "surface-container-highest": "rgb(var(--c-surface-container-highest) / <alpha-value>)",
+          "surface-variant": "rgb(var(--c-surface-variant) / <alpha-value>)",
+          "on-surface": "rgb(var(--c-on-surface) / <alpha-value>)",
+          "on-surface-variant": "rgb(var(--c-on-surface-variant) / <alpha-value>)",
+          "outline": "rgb(var(--c-outline) / <alpha-value>)",
+          "outline-variant": "rgb(var(--c-outline-variant) / <alpha-value>)",
+          "inverse-surface": "rgb(var(--c-inverse-surface) / <alpha-value>)",
+          "inverse-on-surface": "rgb(var(--c-inverse-on-surface) / <alpha-value>)"
         },
         // -------------------------------------------------------
         // CUSTOM FONTS
@@ -196,51 +201,319 @@
     text-wrap: balance;
   }
   
-  /* 
+  /*
     ============================================================
-    ANIMATED MESH GRADIENT — Hero section background
+    THEME COLOURS — light mode (:root) and dark mode (html.dark)
     ============================================================
-    This creates the colorful blurry gradient background in the
-    hero section. It uses multiple radial-gradient() layers
-    stacked on top of each other at different positions.
-    The `animation` property makes the background slowly shift
-    by moving the gradient positions over 20 seconds.
+    Values are "R G B" so Tailwind can add opacity (e.g. bg-primary/20).
+    --accent  = the red used for highlights, arrows, dots
+    --hero-bg = hero background behind the particles
+    --glass   = frosted background of the arrows & dock
+    --ink     = colour of the splash icons
     ============================================================
   */
-  .animated-mesh {
-    background-color: #f9f9f9;
-    background-image: 
-      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-      radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-      radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%), 
-      radial-gradient(at 29% 55%, hsla(250,100%,75%,1) 0, transparent 50%), 
-      radial-gradient(at 79% 49%, hsla(343,100%,88%,1) 0, transparent 50%), 
-      radial-gradient(at 99% 41%, hsla(250,91%,94%,1) 0, transparent 50%), 
-      radial-gradient(at 33% 24%, hsla(222,81%,91%,1) 0, transparent 50%), 
-      radial-gradient(at 57% 33%, hsla(247,83%,95%,1) 0, transparent 50%);
-    background-size: 200% 200%; /* Larger than the element so there's room to pan */
-    animation: mesh-move 20s ease infinite; /* Run the keyframe animation below */
+  :root {
+    --c-primary: 17 17 17;
+    --c-primary-container: 63 63 63;
+    --c-on-primary: 255 255 255;
+    --c-on-primary-container: 255 255 255;
+    --c-primary-fixed: 231 229 228;
+    --c-primary-fixed-dim: 168 162 158;
+    --c-on-primary-fixed: 10 10 10;
+    --c-on-primary-fixed-variant: 41 37 36;
+    --c-inverse-primary: 214 211 209;
+    --c-surface-tint: 17 17 17;
+    --c-secondary: 185 28 28;
+    --c-on-secondary: 255 255 255;
+    --c-secondary-container: 254 202 202;
+    --c-on-secondary-container: 127 29 29;
+    --c-secondary-fixed: 240 240 239;
+    --c-secondary-fixed-dim: 239 68 68;
+    --c-on-secondary-fixed: 10 10 10;
+    --c-on-secondary-fixed-variant: 153 27 27;
+    --c-tertiary: 87 83 78;
+    --c-on-tertiary: 255 255 255;
+    --c-tertiary-container: 120 113 108;
+    --c-on-tertiary-container: 250 250 249;
+    --c-tertiary-fixed: 231 229 228;
+    --c-tertiary-fixed-dim: 214 211 209;
+    --c-on-tertiary-fixed: 28 25 23;
+    --c-on-tertiary-fixed-variant: 68 64 60;
+    --c-error: 186 26 26;
+    --c-on-error: 255 255 255;
+    --c-error-container: 255 218 214;
+    --c-on-error-container: 147 0 10;
+    --c-background: 255 255 255;
+    --c-on-background: 10 10 10;
+    --c-surface: 255 255 255;
+    --c-surface-bright: 255 255 255;
+    --c-surface-dim: 231 229 228;
+    --c-surface-container-lowest: 255 255 255;
+    --c-surface-container-low: 245 245 244;
+    --c-surface-container: 239 238 236;
+    --c-surface-container-high: 231 229 228;
+    --c-surface-container-highest: 220 218 216;
+    --c-surface-variant: 231 229 228;
+    --c-on-surface: 10 10 10;
+    --c-on-surface-variant: 87 83 78;
+    --c-outline: 138 133 128;
+    --c-outline-variant: 214 211 209;
+    --c-inverse-surface: 28 25 23;
+    --c-inverse-on-surface: 250 250 249;
+    --accent: #dc2626;
+    --hero-bg: 255 255 255;
+    --glass: rgba(255,255,255,.85);
+    --ink: #0a0a0a;
   }
-
-  /* 
-    Keyframe animation: slowly pans the gradient background
-    through 4 corners in a loop, creating a living, breathing effect.
-  */
-  @keyframes mesh-move {
-    0%   { background-position: 0% 0%; }    /* top-left */
-    25%  { background-position: 100% 0%; }  /* top-right */
-    50%  { background-position: 100% 100%; } /* bottom-right */
-    75%  { background-position: 0% 100%; }  /* bottom-left */
-    100% { background-position: 0% 0%; }    /* back to top-left */
+  html.dark {
+    --c-primary: 245 245 244;
+    --c-primary-container: 214 211 209;
+    --c-on-primary: 10 10 10;
+    --c-on-primary-container: 10 10 10;
+    --c-primary-fixed: 41 37 36;
+    --c-primary-fixed-dim: 87 83 78;
+    --c-on-primary-fixed: 245 245 244;
+    --c-on-primary-fixed-variant: 214 211 209;
+    --c-inverse-primary: 41 37 36;
+    --c-surface-tint: 245 245 244;
+    --c-secondary: 239 68 68;
+    --c-on-secondary: 10 10 10;
+    --c-secondary-container: 69 10 10;
+    --c-on-secondary-container: 254 202 202;
+    --c-secondary-fixed: 38 38 38;
+    --c-secondary-fixed-dim: 185 28 28;
+    --c-on-secondary-fixed: 245 245 244;
+    --c-on-secondary-fixed-variant: 248 113 113;
+    --c-tertiary: 168 162 158;
+    --c-on-tertiary: 10 10 10;
+    --c-tertiary-container: 87 83 78;
+    --c-on-tertiary-container: 250 250 249;
+    --c-tertiary-fixed: 41 37 36;
+    --c-tertiary-fixed-dim: 68 64 60;
+    --c-on-tertiary-fixed: 245 245 244;
+    --c-on-tertiary-fixed-variant: 214 211 209;
+    --c-error: 255 180 171;
+    --c-on-error: 105 0 5;
+    --c-error-container: 147 0 10;
+    --c-on-error-container: 255 218 214;
+    --c-background: 10 10 10;
+    --c-on-background: 245 245 244;
+    --c-surface: 10 10 10;
+    --c-surface-bright: 28 28 28;
+    --c-surface-dim: 10 10 10;
+    --c-surface-container-lowest: 23 23 23;
+    --c-surface-container-low: 17 17 17;
+    --c-surface-container: 28 28 28;
+    --c-surface-container-high: 38 38 38;
+    --c-surface-container-highest: 48 48 48;
+    --c-surface-variant: 38 38 38;
+    --c-on-surface: 245 245 244;
+    --c-on-surface-variant: 168 162 158;
+    --c-outline: 120 113 108;
+    --c-outline-variant: 58 58 58;
+    --c-inverse-surface: 245 245 244;
+    --c-inverse-on-surface: 28 25 23;
+    --accent: #ef4444;
+    --hero-bg: 0 0 0;
+    --glass: rgba(30,30,30,.8);
+    --ink: #f5f5f4;
   }
+  body, section { transition: background-color .4s, color .4s; }
 
-  /* 
-    A subtle vignette overlay on the hero section — darkens
-    the edges slightly so the text is easier to read against
-    the colorful animated background.
+  /*
+    ============================================================
+    HERO — "fission" particle animation
+    ============================================================
+    The particles are drawn on <canvas id="heroParticles"> by the
+    "HERO PARTICLES" script at the bottom of the page.
+    ============================================================
   */
-  .hero-overlay {
-    background: radial-gradient(circle at center, transparent 0%, rgba(249, 249, 249, 0.4) 100%);
+  .hero { background: rgb(var(--hero-bg)); }
+  .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  /* softens the left side so the headline stays easy to read */
+  .hero-overlay { background: linear-gradient(90deg, rgb(var(--hero-bg) / .8) 0%, rgb(var(--hero-bg) / .35) 45%, transparent 70%); }
+  .hero .text-primary { color: rgb(var(--c-on-surface)); }   /* "tomorrow's solutions." + "Contact Me": black / white */
+  .hero .bg-primary { background-color: rgb(var(--c-on-surface)); }
+  .hero .nav-link-active { border-bottom: 2px solid currentColor; }
+
+  /* Light / dark toggle button */
+  .theme-toggle {
+    position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+    width: 2.5rem; height: 2.5rem; border-radius: 9999px;
+    display: grid; place-items: center;
+    color: var(--ink); background: var(--glass); backdrop-filter: blur(10px);
+    border: 1px solid rgb(var(--c-outline-variant));
+    transition: transform .4s cubic-bezier(.34,1.45,.64,1), background-color .4s, color .4s;
+  }
+  .theme-toggle:hover { transform: translateY(-50%) rotate(25deg) scale(1.06); }
+  .theme-toggle .icon-sun { display: none; }
+  html.dark .theme-toggle .icon-sun { display: inline; }
+  html.dark .theme-toggle .icon-moon { display: none; }
+
+  /* Headline + buttons slide up gently when the page loads */
+  .reveal { opacity: 0; transform: translateY(24px);
+            animation: reveal 1.1s cubic-bezier(.22,1,.36,1) forwards; animation-delay: var(--d, 0ms); }
+  @keyframes reveal { to { opacity: 1; transform: none; } }
+
+  /*
+    ============================================================
+    GOOEY ICONS — "liquid" blobs that split apart on hover
+    ============================================================
+    Each icon is a few SVG circles run through the #goo filter
+    (defined at the top of <body>). When circles overlap they melt
+    into one blob; when they move apart they stretch and snap.
+    Each circle reads its positions from CSS variables:
+      --rx/--ry/--rs = resting position & scale
+      --hx/--hy/--hs = hover position & scale
+      --d            = delay (for a staggered feel)
+    ============================================================
+  */
+  .goo-icon { display: flex; flex-direction: column; align-items: center; gap: .7rem;
+              color: var(--ink); text-decoration: none; outline: none; }
+  .goo-icon svg { width: 76px; height: 76px; overflow: visible; }
+  .goo-icon .p {
+    fill: currentColor;
+    transform-box: fill-box; transform-origin: center;
+    transform: translate(var(--rx, 0px), var(--ry, 0px)) scale(var(--rs, 1));
+    transition: transform .75s cubic-bezier(.34, 1.3, .64, 1) var(--d, 0ms);
+  }
+  /* droplets & specks shoot out fast, then ease to a stop */
+  .goo-icon .drop, .goo-icon .speck {
+    transition: transform .95s cubic-bezier(.16, 1, .3, 1) var(--d, 0ms);
+  }
+  .goo-icon:hover .p, .goo-icon:focus-visible .p, .goo-icon.is-active .p {
+    transform: translate(var(--hx, 0px), var(--hy, 0px)) scale(var(--hs, 1));
+  }
+  .goo-label { position: relative; font-size: 13px; font-weight: 600; color: var(--ink); }
+  .goo-label::after { content: ''; position: absolute; left: 0; bottom: -3px; height: 1.5px; width: 0;
+                      background: currentColor; transition: width .35s cubic-bezier(.22,1,.36,1); }
+  .goo-icon:hover .goo-label::after, .goo-icon:focus-visible .goo-label::after { width: 100%; }
+
+  /*
+    ============================================================
+    CONTACT / FOOTER — dark "Let's talk" section
+    ============================================================
+  */
+  .contact-dark { background: #0a0a0a; color: #f5f5f4; transition: background-color .4s; }
+  html.dark .contact-dark { background: #000; border-top: 1px solid rgba(255,255,255,.08); }
+  .footer-links a { position: relative; font-size: 1.25rem; font-weight: 500;
+                    color: rgba(255,255,255,.8); transition: color .3s; }
+  .footer-links a::after { content: ''; position: absolute; left: 0; bottom: -3px; height: 1px; width: 0;
+                           background: #fff; transition: width .35s cubic-bezier(.22,1,.36,1); }
+  .footer-links a:hover { color: #fff; }
+  .footer-links a:hover::after { width: 100%; }
+  .talk-form input, .talk-form textarea {
+    width: 100%; background: transparent; color: #fff;
+    border: 0; border-bottom: 1px solid rgba(255,255,255,.3); border-radius: 0;
+    padding: .75rem 0; font-size: 1.125rem; resize: none; transition: border-color .3s;
+  }
+  .talk-form input::placeholder, .talk-form textarea::placeholder { color: rgba(255,255,255,.5); }
+  .talk-form input:focus, .talk-form textarea:focus { outline: none; box-shadow: none; border-bottom-color: #fff; }
+  .talk-send {
+    margin-top: 2.5rem; display: inline-flex; align-items: center; gap: .6rem;
+    background: #f5f5f4; color: #0a0a0a; font-weight: 600; font-size: 1.05rem;
+    padding: 1rem 1.9rem; border-radius: 9999px; transition: gap .3s, transform .2s;
+  }
+  .talk-send:hover { gap: 1rem; }
+  .talk-send:active { transform: scale(.97); }
+  .talk-send:disabled { opacity: .6; }
+  .blackhole { display: block; width: 100%; height: clamp(240px, 34vw, 440px); margin-top: 5rem; cursor: crosshair; }
+  .wordmark { font-weight: 600; letter-spacing: -.055em; line-height: .9; white-space: nowrap;
+              font-size: clamp(2rem, 6vw, 5.5rem); }
+
+  /*
+    ============================================================
+    PROJECT CAROUSEL + MAGNETIC DOCK
+    ============================================================
+  */
+  .carousel-track {
+    position: relative;
+    display: flex; gap: 2rem;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    /* side padding lets the first & last cards sit in the centre */
+    padding: 2.5rem calc(50% - min(220px, 41vw)) 3rem;
+    scrollbar-width: none; cursor: grab; outline: none;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-track.is-dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  .project-card {
+    flex: 0 0 min(440px, 82vw);
+    scroll-snap-align: center;
+    transform: scale(var(--scale, 1));
+    opacity: var(--fade, 1);
+    transition: transform .25s ease-out, opacity .25s ease-out;
+  }
+  .card-inner {
+    position: relative;
+    transform: perspective(1000px) translate3d(var(--tx, 0px), var(--ty, 0px), 0)
+               rotateX(var(--rotx, 0deg)) rotateY(var(--roty, 0deg));
+    transition: transform .7s cubic-bezier(.22,1,.36,1), box-shadow .7s;
+    box-shadow: 0 10px 30px -18px rgba(15,23,42,.25);
+  }
+  .project-card.is-active .card-inner { box-shadow: 0 35px 60px -25px rgba(0,0,0,.28); }
+  .card-inner.is-magnet { transition: transform .18s ease-out, box-shadow .7s; }
+  .card-glare {
+    position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,.6), transparent 45%);
+    transition: opacity .4s;
+  }
+  .card-inner.is-magnet .card-glare { opacity: 1; }
+
+  .carousel-arrow {
+    position: absolute; top: 50%; z-index: 10; transform: translateY(-50%);
+    width: 3.25rem; height: 3.25rem; border-radius: 9999px;
+    display: grid; place-items: center;
+    background: var(--glass); backdrop-filter: blur(10px);
+    color: var(--accent); box-shadow: 0 8px 24px -8px rgba(15,23,42,.25);
+    transition: transform .3s, background .3s, color .3s;
+  }
+  .carousel-arrow:hover { background: var(--accent); color: #fff; transform: translateY(-50%) scale(1.08); }
+  .carousel-arrow.prev { left: 1.5rem; }
+  .carousel-arrow.next { right: 1.5rem; }
+  @media (max-width: 767px) { .carousel-arrow { display: none; } }
+
+  /* Dock: thumbnails grow like the macOS dock as the mouse passes over */
+  .project-dock {
+    position: relative;
+    display: flex; align-items: flex-end; gap: .75rem;
+    width: max-content; max-width: calc(100% - 2rem); margin: 0 auto;
+    padding: .75rem 1rem;
+    background: var(--glass); backdrop-filter: blur(16px);
+    border: 1px solid rgba(148,163,184,.25); border-radius: 1.5rem;
+    box-shadow: 0 12px 30px -12px rgba(15,23,42,.18);
+  }
+  .dock-item {
+    position: relative; width: 52px; height: 52px; flex: none;
+    transform-origin: bottom center;
+    transition: transform .2s cubic-bezier(.22,1,.36,1);
+  }
+  .dock-thumb { display: block; width: 100%; height: 100%; border-radius: 14px; overflow: hidden;
+                box-shadow: 0 4px 10px -4px rgba(15,23,42,.3); }
+  .dock-thumb img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+  .dock-dot { position: absolute; left: 50%; bottom: -8px; width: 4px; height: 4px; margin-left: -2px;
+              border-radius: 9999px; background: var(--accent); opacity: 0; transition: opacity .3s; }
+  .dock-item.is-active .dock-dot { opacity: 1; }
+  .dock-tip {
+    position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(4px);
+    white-space: nowrap; font-size: 10px; font-weight: 600; padding: 4px 8px; border-radius: 8px;
+    background: #0f172a; color: #fff; opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s;
+  }
+  .dock-item:hover .dock-tip, .dock-item:focus-visible .dock-tip { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* About photo: moves slightly toward the mouse, photo zooms a touch */
+  .about-photo {
+    transform: perspective(900px) translate3d(var(--px, 0px), var(--py, 0px), 0)
+               rotateX(var(--prx, 0deg)) rotateY(var(--pry, 0deg));
+    transition: transform .8s cubic-bezier(.22,1,.36,1);
+  }
+  .about-photo.is-moving { transition: transform .25s ease-out; }
+  .about-photo img { transition: transform .8s cubic-bezier(.22,1,.36,1); }
+  .about-photo:hover img { transform: scale(1.04); }
+
+  /* Respect people who turn off animations in their OS settings */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none !important; opacity: 1; transform: none; }
+    .goo-icon .p, .project-card, .card-inner, .dock-item, .about-photo, .about-photo img { transition: none !important; }
   }
 
   /* 
@@ -251,6 +524,15 @@
     border-bottom: 2px solid theme('colors.primary');
   }
 </style>
+<!-- Pick light/dark before the page paints: saved choice, else the device setting -->
+<script>
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch (e) {}
+</script>
 </head>
 
 <!-- 
@@ -267,7 +549,10 @@
      navigation bar, and the main headline + CTA buttons.
      `id="home"` is the anchor target for the nav link href="#home".
      ============================================================ -->
-<section class="min-h-screen relative flex flex-col animated-mesh overflow-hidden" id="home">
+<section class="hero min-h-screen relative flex flex-col overflow-hidden" id="home">
+
+  <!-- Particle animation canvas (drawn by the "HERO PARTICLES" script at the bottom) -->
+  <canvas id="heroParticles" class="hero-canvas" aria-hidden="true"></canvas>
 
   <!-- 
     NAVIGATION BAR — Minimal underline style
@@ -276,8 +561,14 @@
     class defined in the <style> block above.
     On mobile the nav links are hidden (`hidden md:flex`).
   -->
-  <nav class="w-full z-50 pt-10 px-8">
-    <div class="max-w-7xl mx-auto flex justify-center items-center">
+  <nav class="relative w-full z-50 pt-10 px-8">
+    <div class="relative max-w-7xl mx-auto flex justify-center items-center min-h-[2.5rem]">
+
+      <!-- LIGHT / DARK toggle (top-right). Script: "THEME TOGGLE" at the bottom. -->
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
+        <span class="material-symbols-outlined icon-moon" aria-hidden="true">dark_mode</span>
+        <span class="material-symbols-outlined icon-sun" aria-hidden="true">light_mode</span>
+      </button>
 
       <!-- 
         Nav links — minimal, no background, no pill.
@@ -339,15 +630,15 @@
         <!-- 
           MAIN HEADLINE
           Font size is responsive: text-5xl on mobile, text-7xl on md,
-          text-8xl on lg. The highlighted words use `text-primary` (purple).
+          text-8xl on lg. The highlighted words are red on the dark hero.
           `text-balanced` (custom class above) improves line wrapping.
         -->
-        <h1 class="text-on-surface font-headline font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-12 text-balanced">
+        <h1 class="reveal text-on-surface font-headline font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-12 text-balanced" style="--d:100ms">
           Driven by technology and AI, I'm Marny Brooker, engineering <span class="text-primary">tomorrow's solutions.</span>
         </h1>
 
         <!-- Two CTA buttons side by side (stacked on mobile) -->
-        <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <div class="reveal flex flex-col sm:flex-row gap-6 items-start" style="--d:300ms">
 
           <!-- Primary CTA — gradient fill, scrolls to #portfolio -->
           <a class="inline-flex items-center bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-full font-label font-bold tracking-wide hover:opacity-90 transition-all shadow-xl shadow-primary/20" href="#portfolio">
@@ -363,6 +654,53 @@
             <span class="material-symbols-outlined ml-1">arrow_forward</span>
           </a>
         </div>
+
+        <!--
+          SPLASH NAV ICONS — each icon links to a part of the site.
+          Hover (or tab to) one and it splashes into droplets in all
+          directions. The droplets are added by the script at the
+          bottom of the page (new random splash every hover).
+          👉 TO CHANGE A LINK: edit the href.  TO RENAME: edit .goo-label.
+        -->
+        <nav class="reveal mt-20 flex flex-wrap gap-12 md:gap-20" style="--d:500ms" aria-label="Sections">
+
+          <a class="goo-icon" href="#about">
+            <svg viewBox="0 0 80 80" aria-hidden="true"><g filter="url(#goo)">
+              <circle class="p" cx="40" cy="40" r="10" style="--hs:.55"/>
+              <circle class="p" cx="40" cy="40" r="8" style="--rx:-7px;--ry:-5px;--hx:-9px;--hy:-6px;--hs:.6"/>
+              <circle class="p" cx="40" cy="40" r="8" style="--rx:7px;--ry:-5px;--hx:9px;--hy:-6px;--hs:.6"/>
+              <circle class="p" cx="40" cy="40" r="8" style="--ry:8px;--hy:10px;--hs:.6"/>
+            </g></svg>
+            <span class="goo-label">About me</span>
+          </a>
+
+          <a class="goo-icon" href="#portfolio">
+            <svg viewBox="0 0 80 80" aria-hidden="true"><g filter="url(#goo)">
+              <circle class="p" cx="40" cy="40" r="9" style="--rx:-6px;--ry:-6px;--hx:-8px;--hy:-8px;--hs:.6"/>
+              <circle class="p" cx="40" cy="40" r="9" style="--rx:6px;--ry:-6px;--hx:8px;--hy:-8px;--hs:.6"/>
+              <circle class="p" cx="40" cy="40" r="9" style="--rx:-6px;--ry:6px;--hx:-8px;--hy:8px;--hs:.6"/>
+              <circle class="p" cx="40" cy="40" r="9" style="--rx:6px;--ry:6px;--hx:8px;--hy:8px;--hs:.6"/>
+            </g></svg>
+            <span class="goo-label">Projects</span>
+          </a>
+
+          <a class="goo-icon" href="#contact">
+            <svg viewBox="0 0 80 80" aria-hidden="true"><g filter="url(#goo)">
+              <circle class="p" cx="40" cy="40" r="9" style="--rx:-9px;--hx:-12px;--hy:-4px;--hs:.6"/>
+              <circle class="p" cx="40" cy="40" r="9" style="--hy:4px;--hs:.6"/>
+              <circle class="p" cx="40" cy="40" r="9" style="--rx:9px;--hx:12px;--hy:-4px;--hs:.6"/>
+            </g></svg>
+            <span class="goo-label">Let's talk</span>
+          </a>
+
+          <a class="goo-icon" href="MarnyBrookerCV.pdf" download>
+            <svg viewBox="0 0 80 80" aria-hidden="true"><g filter="url(#goo)">
+              <circle class="p" cx="40" cy="40" r="15" style="--hs:.45"/>
+            </g></svg>
+            <span class="goo-label">Download CV</span>
+          </a>
+
+        </nav>
       </div>
     </div>
   </div>
@@ -372,7 +710,7 @@
     `opacity-40` makes it subtle. `rotate-180` and `writing-mode:vertical-lr`
     rotate the text 90 degrees so it reads bottom-to-top.
   -->
-  <div class="absolute bottom-10 left-8 flex flex-col gap-4 opacity-40">
+  <div class="absolute bottom-10 right-8 hidden md:flex flex-col items-center gap-4 opacity-40">
     <div class="w-px h-16 bg-on-surface-variant"></div>
     <span class="font-label text-[10px] uppercase tracking-[0.3em] rotate-180 [writing-mode:vertical-lr]">Scroll Down</span>
   </div>
@@ -411,7 +749,8 @@
             src="ABoutMe.JPG"
           />
         </div> -->
-        <div class="aspect-[4/5] rounded-3xl overflow-hidden bg-surface-container-low shadow-2xl">
+        <!-- `about-photo`: drifts gently toward the mouse on hover (script at the bottom) -->
+        <div class="about-photo aspect-[4/5] rounded-3xl overflow-hidden bg-surface-container-low shadow-2xl">
           <img 
             alt="Marny Brooker - McGill Engineering" 
             class="w-full h-full object-cover" 
@@ -423,9 +762,9 @@
           Small floating info card — positioned over the bottom-right
           corner of the photo using `absolute -bottom-8 -right-8`.
         -->
-        <div class="absolute -bottom-8 -right-8 bg-surface-container-lowest p-8 rounded-2xl shadow-xl max-w-[240px]">
-          <p class="text-secondary font-headline font-bold text-3xl mb-1">2028</p>
-          <p class="text-on-surface-variant font-label text-xs uppercase tracking-widest">Expected Graduation</p>
+        <div class="absolute -bottom-4 -right-4 bg-surface-container-lowest px-4 py-3 rounded-xl shadow-xl max-w-[120px]">
+          <p class="text-on-surface font-headline font-bold text-base leading-tight">2028</p>
+          <p class="text-on-surface-variant font-label text-[8px] leading-snug uppercase tracking-wider">Expected Graduation</p>
         </div>
       </div>
 
@@ -568,7 +907,7 @@
   <div class="max-w-7xl mx-auto px-8">
 
     <!-- Section header row: title on left, subtitle on right -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-8">
       <div class="max-w-2xl">
         <!-- Small eyebrow label above the big title -->
         <span class="font-label text-xs tracking-[0.2em] uppercase text-primary font-bold mb-4 block">Selected Projects</span>
@@ -579,245 +918,171 @@
       </p>
     </div>
 
-    <!-- 
-      PROJECT GRID
-      1 column on mobile, 2 on md, 3 on lg screens.
-    -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  </div><!-- /header container -->
+
+  <!--
+    ============================================================
+    PROJECT CAROUSEL
+    ============================================================
+    Slide with trackpad / touch, drag with the mouse, use the
+    arrows or keyboard ← →, or click a thumbnail in the dock.
+    The centre card follows your mouse with a "magnetic" tilt.
+    👉 TO ADD A PROJECT: copy one whole <article class="project-card">
+       block and change the image, badge, title and text. The dock
+       thumbnail below is created automatically from it.
+    ============================================================
+  -->
+  <div class="relative">
+    <div class="carousel-track" id="projectTrack" tabindex="0" aria-label="Projects. Use the left and right arrow keys to browse.">
 
       <!-- ---- PROJECT CARD 1 ---- -->
-      <!-- 
-        `group` on the outer div enables child elements to use
-        `group-hover:` classes — e.g., the title changes color
-        and the image zooms when you hover anywhere on the card.
-      -->
-      <div class="group bg-surface-container-lowest rounded-[2rem] p-4 hover:scale-[1.02] transition-all duration-500 cubic-bezier(0.23, 1, 0.32, 1)">
-        <!-- 
-          IMAGE AREA
-          `aspect-video` locks the container to 16:9 ratio.
-          `overflow-hidden` clips the image zoom effect inside the rounded corners.
-          The image itself scales up 110% on hover (`group-hover:scale-110`).
-          =====================================================
-          👉 TO CHANGE PROJECT PHOTOS: Replace the `src="..."` value
-             on each <img> tag with your own image URL or local path.
-          =====================================================
-        -->
-        <div class="aspect-video rounded-2xl overflow-hidden mb-8 relative">
-          <img 
-            alt="Neural Network Visual" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-            src="Iris_DataVisualised.jpg"
-          />
-          <!-- Category badge — positioned top-right corner of the image -->
-          <span class="absolute top-4 right-4 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label text-[10px] uppercase font-bold tracking-widest rounded-full">
-            Machine Learning
-          </span>
+      <article class="project-card">
+        <div class="card-inner group bg-surface-container-lowest rounded-[2rem] p-4">
+          <div class="aspect-video rounded-2xl overflow-hidden mb-8 relative">
+            <img alt="Iris dataset visualised" draggable="false"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="Iris_DataVisualised.jpg"/>
+            <span class="absolute top-4 right-4 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label text-[10px] uppercase font-bold tracking-widest rounded-full">
+              Machine Learning
+            </span>
+          </div>
+          <div class="px-4 pb-4">
+            <h3 class="font-headline font-bold text-2xl mb-4 group-hover:text-primary transition-colors">
+              Iris Species Classification
+            </h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-8 line-clamp-2">
+              Engineered a Decision Tree Classifier achieving 97% accuracy. Implemented a full Scikit-Learn pipeline with MinMaxScaler and automated hyperparameter tuning via GridSearchCV.
+            </p>
+            <button class="w-full py-4 rounded-xl bg-surface-container-high text-on-surface font-label font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all flex justify-center items-center gap-2">
+              View Case Study (PDF) <span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+            </button>
+          </div>
+          <div class="card-glare"></div>
         </div>
-        <!-- Card text + button -->
-        <div class="px-4 pb-4">
-          <!-- Title changes to `text-primary` on hover via `group-hover:text-primary` -->
-          <h3 class="font-headline font-bold text-2xl mb-4 group-hover:text-primary transition-colors">
-            Iris Species Classification
-          </h3>
-          <!-- `line-clamp-2` truncates text to 2 lines with an ellipsis -->
-          <p class="text-on-surface-variant text-sm leading-relaxed mb-8 line-clamp-2">
-            Engineered a Decision Tree Classifier achieving 97% accuracy. Implemented a full Scikit-Learn pipeline with MinMaxScaler and automated hyperparameter tuning via GridSearchCV.
-          </p>
-          <!-- 
-            CTA button — background transitions from grey to primary purple on hover.
-            `picture_as_pdf` is the Material Symbol icon name for a PDF icon.
-            =====================================================
-            👉 TO CHANGE THE ICON: Replace `picture_as_pdf` with any icon
-               name from https://fonts.google.com/icons
-            =====================================================
-          -->
-          <button class="w-full py-4 rounded-xl bg-surface-container-high text-on-surface font-label font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all flex justify-center items-center gap-2">
-            View Case Study (PDF) <span class="material-symbols-outlined text-sm">picture_as_pdf</span>
-          </button>
-        </div>
-      </div>
+      </article>
 
       <!-- ---- PROJECT CARD 2 ---- -->
-      <div class="group bg-surface-container-lowest rounded-[2rem] p-4 hover:scale-[1.02] transition-all duration-500 cubic-bezier(0.23, 1, 0.32, 1)">
-        <div class="aspect-video rounded-2xl overflow-hidden mb-8 relative">
-          <!-- 
-            👉 CHANGE THIS PHOTO: Replace the src URL below
-          -->
-          <img 
-            alt="Hardware Circuitry" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-            src = "CaliforniaHouse.jpg"
-          />
-          <span class="absolute top-4 right-4 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label text-[10px] uppercase font-bold tracking-widest rounded-full">
-            Machine Learning
-          </span>
+      <article class="project-card">
+        <div class="card-inner group bg-surface-container-lowest rounded-[2rem] p-4">
+          <div class="aspect-video rounded-2xl overflow-hidden mb-8 relative">
+            <img alt="California housing map" draggable="false"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="CaliforniaHouse.jpg"/>
+            <span class="absolute top-4 right-4 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label text-[10px] uppercase font-bold tracking-widest rounded-full">
+              Machine Learning
+            </span>
+          </div>
+          <div class="px-4 pb-4">
+            <h3 class="font-headline font-bold text-2xl mb-4 group-hover:text-primary transition-colors">
+              California House Price Prediction
+            </h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-8 line-clamp-2">
+              End-to-end regression project implementing a Scikit-Learn pipeline with custom transformers and hyperparameter tuning via GridSearchCV.
+            </p>
+            <button class="w-full py-4 rounded-xl bg-surface-container-high text-on-surface font-label font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all flex justify-center items-center gap-2">
+              View Case Study (PDF) <span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+            </button>
+          </div>
+          <div class="card-glare"></div>
         </div>
-        <div class="px-4 pb-4">
-          <h3 class="font-headline font-bold text-2xl mb-4 group-hover:text-primary transition-colors">
-            California House Price Prediction
-          </h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed mb-8 line-clamp-2">
-            End-to-end regression project implementing a Scikit-Learn pipeline with custom transformers and hyperparameter tuning via GridSearchCV.
-          </p>
-          <button class="w-full py-4 rounded-xl bg-surface-container-high text-on-surface font-label font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all flex justify-center items-center gap-2">
-            View Case Study (PDF) <span class="material-symbols-outlined text-sm">picture_as_pdf</span>
-          </button>
-        </div>
-      </div>
+      </article>
 
       <!-- ---- PROJECT CARD 3 ---- -->
-      <div class="group bg-surface-container-lowest rounded-[2rem] p-4 hover:scale-[1.02] transition-all duration-500 cubic-bezier(0.23, 1, 0.32, 1)">
-        <div class="aspect-video rounded-2xl overflow-hidden mb-8 relative">
-          <!-- 
-            👉 CHANGE THIS PHOTO: Replace the src URL below
-          -->
-          <img 
-            alt="Cybersecurity Concept" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-            src="Robot.jpg"
-          />
-          <span class="absolute top-4 right-4 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label text-[10px] uppercase font-bold tracking-widest rounded-full">
-            Systems
-          </span>
+      <article class="project-card">
+        <div class="card-inner group bg-surface-container-lowest rounded-[2rem] p-4">
+          <div class="aspect-video rounded-2xl overflow-hidden mb-8 relative">
+            <img alt="Robot" draggable="false"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              src="Robot.jpg"/>
+            <span class="absolute top-4 right-4 px-3 py-1 bg-secondary-fixed text-on-secondary-fixed font-label text-[10px] uppercase font-bold tracking-widest rounded-full">
+              Systems
+            </span>
+          </div>
+          <div class="px-4 pb-4">
+            <h3 class="font-headline font-bold text-2xl mb-4 group-hover:text-primary transition-colors">
+              Distributed Ledger Audit
+            </h3>
+            <p class="text-on-surface-variant text-sm leading-relaxed mb-8 line-clamp-2">
+              Secure auditing framework for decentralized systems focusing on data integrity and high-throughput verification.
+            </p>
+            <button class="w-full py-4 rounded-xl bg-surface-container-high text-on-surface font-label font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all flex justify-center items-center gap-2">
+              View Case Study (PDF) <span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+            </button>
+          </div>
+          <div class="card-glare"></div>
         </div>
-        <div class="px-4 pb-4">
-          <h3 class="font-headline font-bold text-2xl mb-4 group-hover:text-primary transition-colors">
-            Distributed Ledger Audit
-          </h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed mb-8 line-clamp-2">
-            Secure auditing framework for decentralized systems focusing on data integrity and high-throughput verification.
-          </p>
-          <button class="w-full py-4 rounded-xl bg-surface-container-high text-on-surface font-label font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all flex justify-center items-center gap-2">
-            View Case Study (PDF) <span class="material-symbols-outlined text-sm">picture_as_pdf</span>
-          </button>
-        </div>
-      </div>
+      </article>
 
-    </div><!-- /grid -->
+    </div><!-- /carousel-track -->
+
+    <button class="carousel-arrow prev" data-dir="-1" aria-label="Previous project"><span class="material-symbols-outlined">arrow_back</span></button>
+    <button class="carousel-arrow next" data-dir="1" aria-label="Next project"><span class="material-symbols-outlined">arrow_forward</span></button>
   </div>
+
+  <!-- Dock — thumbnails are generated by the script at the bottom of the page -->
+  <nav class="project-dock" id="projectDock" aria-label="Jump to a project"></nav>
 </section>
 
 
-<section class="py-32 bg-surface relative overflow-hidden" id="contact">
-  <div class="max-w-7xl mx-auto px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
+<!-- ============================================================
+     SECTION 4: CONTACT + FOOTER — dark "Let's talk"
+     Left: links to every part of the site. Right: the contact form
+     (still sent to your Google Sheet by the script below).
+     Bottom: your name, big.
+     ============================================================ -->
+<section class="contact-dark relative overflow-hidden" id="contact">
+  <div class="max-w-7xl mx-auto px-8 pt-28 md:pt-36">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
-      <div class="space-y-12">
-        <div>
-          <span class="font-label text-xs tracking-[0.2em] uppercase text-secondary font-bold mb-4 block">Let's Connect</span>
-          <h2 class="font-headline font-extrabold text-5xl text-on-surface tracking-tight mb-6">Open for collaboration.</h2>
-          <p class="text-on-surface-variant text-lg">I'm always interested in new technical challenges, AI research, and engineering internships.</p>
-        </div>
+      <!-- LEFT: site links -->
+      <nav class="order-2 lg:order-1" aria-label="Footer">
+        <ul class="footer-links space-y-4">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About me</a></li>
+          <li><a href="#portfolio">Projects</a></li>
+          <li><a href="mailto:marnybrooker@icloud.com">Contact</a></li>
+          <li><a href="tel:+33767543614">+33 7 67 54 36 14</a></li>
+          <li><a href="http://www.linkedin.com/in/marnybrooker" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/MarnyCode" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="MarnyBrookerCV.pdf" download>Download CV</a></li>
+        </ul>
+      </nav>
 
-        <div class="space-y-8">
-          
-          <div class="flex items-center gap-6 group">
-            <div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">
-              <i class="fas fa-envelope text-2xl"></i>
+      <!-- RIGHT: Let's talk form -->
+      <div class="order-1 lg:order-2">
+        <h2 class="font-headline font-extrabold text-5xl md:text-6xl tracking-tight mb-12">Let’s talk.</h2>
+        <form name="YOUR_FORM_NAME" class="talk-form">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8">
+            <div>
+              <label class="sr-only" for="f-name">Your name</label>
+              <input id="f-name" name="Name" type="text" placeholder="Your name" required/>
             </div>
             <div>
-              <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Email</p>
-              <p class="font-headline font-bold text-xl">
-              <a href="mailto:marnybrooker@icloud.com" class="font-headline font-bold hover:text-primary transition-colors">
-                marnybrooker@icloud.com
-              </a>
-              </p>
+              <label class="sr-only" for="f-email">Email</label>
+              <input id="f-email" name="Email" type="email" placeholder="Email" required/>
+            </div>
+            <div class="sm:col-span-2">
+              <label class="sr-only" for="f-message">Message</label>
+              <textarea id="f-message" name="Message" rows="3" placeholder="Message"></textarea>
             </div>
           </div>
-
-          <div class="flex items-center gap-6 group">
-            <div class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">
-              <i class="fas fa-phone text-2xl"></i>
-            </div>
-            <div>
-              <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Phone</p>
-              <p class="font-headline font-bold text-xl">+33 7 67 54 36 14</p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-6 group">
-            <a href="http://www.linkedin.com/in/marnybrooker" target="_blank" 
-               class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-on-primary">
-              <i class="fab fa-linkedin-in text-2xl"></i>
-            </a>
-            <div>
-              <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">LinkedIn</p>
-              <p class="font-headline font-bold text-xl">
-                <a href="http://www.linkedin.com/in/marnybrooker" target="_blank">marnybrooker</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-center gap-6 group">
-            <a href="https://github.com/MarnyCode" target="_blank" 
-               class="w-16 h-16 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-on-primary">
-              <i class="fab fa-github text-2xl"></i>
-            </a>
-            <div>
-              <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">GitHub</p>
-              <p class="font-headline font-bold text-xl">
-                <a href="https://github.com/MarnyCode" target="_blank">MarnyCode</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="pt-4">
-            <a href="MarnyBrookerCV.pdf" download 
-               class="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-primary text-on-primary font-bold hover:shadow-lg hover:shadow-primary/20 transition-all scale-98 active:scale-95 w-fit">
-              <i class="fas fa-download"></i>
-              Download CV
-            </a>
-          </div>
-        </div>
-      </div> <div class="bg-surface-container-lowest p-10 md:p-16 rounded-[3rem] shadow-2xl relative z-10">
-        <form name="YOUR_FORM_NAME" class="space-y-8">
-          
-          <div class="space-y-2">
-            <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface-variant px-1">Your Name</label>
-            <input name="Name" class="w-full bg-surface border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Marny Brooker" type="text" required/>
-          </div>
-
-          <div class="space-y-2">
-            <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface-variant px-1">Email Address</label>
-            <input name="Email" class="w-full bg-surface border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="marnybrooker@example.com" type="email" required/>
-          </div>
-
-          <div class="space-y-2">
-            <label class="font-label text-[10px] uppercase tracking-[0.2em] font-bold text-on-surface-variant px-1">Message</label>
-            <textarea name="Message" class="w-full bg-surface border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-primary/20 transition-all resize-none" placeholder="Hi Marny! I’d love to chat about a potential project/internship. Are you free for a quick call sometime next week?" rows="4"></textarea>
-          </div>
-
-          <button type="submit" class="w-full bg-primary text-on-primary py-5 rounded-2xl font-label font-bold tracking-widest uppercase hover:shadow-lg hover:shadow-primary/20 transition-all scale-98 active:scale-95">
-            Send Inquiry
-          </button>
-          
-          <span id="msg" class="block mt-4 text-center text-green-600"></span>
+          <button type="submit" class="talk-send">Send <span aria-hidden="true">→</span></button>
+          <span id="msg" class="block mt-4 text-sm text-emerald-400"></span>
         </form>
       </div>
 
     </div>
+
+    <!-- Big name at the very bottom -->
+    <!-- ASCII black hole (drawn by the "ASCII BLACK HOLE" script at the bottom) -->
+    <canvas id="blackHole" class="blackhole" aria-hidden="true"></canvas>
+
+    <div class="mt-6 pb-10">
+      <p class="wordmark">Marny Brooker</p>
+      <p class="mt-6 text-xs text-white/40">© 2026 Marny Brooker</p>
+    </div>
   </div>
-
-  <div class="absolute -top-48 -right-48 w-96 h-96 border border-primary/10 rounded-full"></div>
 </section>
-
-<!-- ============================================================
-     FOOTER
-     Simple 3-column row: logo | copyright | nav links
-     Uses standard Tailwind slate colors (not the custom palette above).
-     ============================================================ -->
-<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 border-t border-outline-variant/10">
-  <div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-6">
-
-    <!-- Logo — left -->
-    <div class="text-lg font-black text-slate-900 dark:text-slate-100"></div>
-
-    <!-- Copyright — center -->
-    <div class="font-manrope text-[10px] tracking-[0.05em] uppercase text-slate-500">
-      © 2026 MARNY BROOKER. ALL RIGHTS RESERVED.
-    </div>
-    </div>
-</footer>
 <script>
 
   // --- 2. GOOGLE SHEETS FORM LOGIC ---
@@ -830,14 +1095,14 @@
     
     // Visual feedback: Change button state
     const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.innerText;
-    submitBtn.innerText = "SENDING...";
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerText = "Sending…";
     submitBtn.disabled = true;
 
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then(response => {
         msg.innerHTML = "Message sent successfully! I'll be in touch.";
-        submitBtn.innerText = originalBtnText;
+        submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
         
         // Reset form and message after 5 seconds
@@ -849,10 +1114,580 @@
       .catch(error => {
         console.error('Error!', error.message);
         msg.innerHTML = "Submission failed. Please email me directly!";
-        submitBtn.innerText = originalBtnText;
+        submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
       });
   });
+</script>
+
+<!-- Gooey SVG filter used by the hero icons (blur + sharpen = "liquid" merge) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="goo" filterUnits="userSpaceOnUse" x="-60" y="-60" width="200" height="200">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"/>
+    </filter>
+  </defs>
+</svg>
+
+<!--
+  ============================================================
+  INTERACTIONS — hero glow, gooey intro, carousel, dock
+  ============================================================
+-->
+<script>
+(function () {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Splash icons ----------
+     Each icon gets 14 droplets (melt together through the goo filter)
+     and 10 tiny crisp specks. They hide at the centre, and on hover
+     they fly out in random directions — a new splash every time. */
+  const NS = 'http://www.w3.org/2000/svg';
+  const rand = (a, b) => a + Math.random() * (b - a);
+  document.querySelectorAll('.goo-icon').forEach((icon) => {
+    const svg = icon.querySelector('svg');
+    const gooGroup = svg.querySelector('g[filter]');
+    const speckGroup = document.createElementNS(NS, 'g');
+    svg.appendChild(speckGroup);
+    const parts = [];
+    const add = (group, cls, r) => {
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('class', 'p ' + cls);
+      c.setAttribute('cx', 40); c.setAttribute('cy', 40); c.setAttribute('r', r);
+      c.style.setProperty('--rs', '0');
+      group.appendChild(c);
+      parts.push(c);
+    };
+    for (let i = 0; i < 14; i++) add(gooGroup, 'drop', rand(5, 8).toFixed(1));
+    for (let i = 0; i < 10; i++) add(speckGroup, 'speck', rand(1, 2.2).toFixed(1));
+
+    const splash = () => {
+      parts.forEach((c, i) => {
+        const speck = c.classList.contains('speck');
+        // spread droplets evenly around the circle, with some wobble
+        const angle = (i / parts.length) * Math.PI * 2 + rand(-0.5, 0.5);
+        const dist = speck ? rand(40, 64) : rand(20, 48);
+        c.style.setProperty('--hx', (Math.cos(angle) * dist).toFixed(1) + 'px');
+        c.style.setProperty('--hy', (Math.sin(angle) * dist).toFixed(1) + 'px');
+        c.style.setProperty('--hs', speck ? '1' : rand(0.7, 1.1).toFixed(2));
+        c.style.setProperty('--d', Math.round(rand(0, 110)) + 'ms');
+      });
+    };
+    splash();
+    icon.addEventListener('pointerenter', splash);
+    icon.addEventListener('focus', splash);
+  });
+
+  // Play each splash once on load, one after another
+  if (!reduce) {
+    document.querySelectorAll('.goo-icon').forEach((icon, i) => {
+      setTimeout(() => icon.classList.add('is-active'), 900 + i * 220);
+      setTimeout(() => icon.classList.remove('is-active'), 2000 + i * 220);
+    });
+  }
+
+  /* ---------- About photo: slight movement toward the mouse ---------- */
+  const photo = document.querySelector('.about-photo');
+  if (photo && !reduce) {
+    photo.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const r = photo.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      photo.classList.add('is-moving');
+      photo.style.setProperty('--px', (px * 12).toFixed(1) + 'px');
+      photo.style.setProperty('--py', (py * 12).toFixed(1) + 'px');
+      photo.style.setProperty('--pry', (px * 5).toFixed(2) + 'deg');
+      photo.style.setProperty('--prx', (-py * 5).toFixed(2) + 'deg');
+    });
+    photo.addEventListener('pointerleave', () => {
+      photo.classList.remove('is-moving');
+      ['--px', '--py', '--prx', '--pry'].forEach((p) => photo.style.removeProperty(p));
+    });
+  }
+
+  /* ---------- Project carousel ---------- */
+  const track = document.getElementById('projectTrack');
+  const dock = document.getElementById('projectDock');
+  if (!track) return;
+  const cards = Array.from(track.querySelectorAll('.project-card'));
+  let active = 0;
+
+  function goTo(i) {
+    const c = cards[Math.max(0, Math.min(cards.length - 1, i))];
+    track.scrollTo({ left: c.offsetLeft - (track.clientWidth - c.offsetWidth) / 2,
+                     behavior: reduce ? 'auto' : 'smooth' });
+  }
+
+  // Build the dock from the cards, so adding a card adds a thumbnail
+  const dockItems = cards.map((card, i) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'dock-item';
+    const title = card.querySelector('h3').textContent.trim();
+    btn.setAttribute('aria-label', 'Show ' + title);
+    btn.innerHTML = '<span class="dock-tip"></span><span class="dock-thumb"><img alt=""></span><span class="dock-dot"></span>';
+    btn.querySelector('.dock-tip').textContent = title;
+    btn.querySelector('img').src = card.querySelector('img').getAttribute('src');
+    btn.addEventListener('click', () => goTo(i));
+    dock.appendChild(btn);
+    return btn;
+  });
+
+  // Scale & fade cards by distance from the centre
+  function update() {
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let best = 0, bestD = Infinity;
+    cards.forEach((c, i) => {
+      const d = (c.offsetLeft + c.offsetWidth / 2 - center) / (c.offsetWidth + 32);
+      const ad = Math.min(Math.abs(d), 1);
+      c.style.setProperty('--scale', (1 - ad * 0.1).toFixed(3));
+      c.style.setProperty('--fade', (1 - ad * 0.45).toFixed(3));
+      if (Math.abs(d) < bestD) { bestD = Math.abs(d); best = i; }
+    });
+    active = best;
+    cards.forEach((c, i) => c.classList.toggle('is-active', i === best));
+    dockItems.forEach((b, i) => b.classList.toggle('is-active', i === best));
+  }
+  let ticking = false;
+  track.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  // Arriving at Projects (any link to #portfolio): scroll so the
+  // centre project card sits in the middle of the screen
+  function centerProjects(smooth) {
+    const card = cards[active] || cards[0];
+    const r = card.getBoundingClientRect();
+    const top = window.scrollY + r.top + r.height / 2 - window.innerHeight / 2;
+    window.scrollTo({ top: Math.max(0, top), behavior: smooth && !reduce ? 'smooth' : 'auto' });
+  }
+  document.querySelectorAll('a[href="#portfolio"]').forEach((a) => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    history.replaceState(null, '', '#portfolio');
+    centerProjects(true);
+  }));
+  if (location.hash === '#portfolio') window.addEventListener('load', () => centerProjects(false));
+
+  // Arrows + keyboard
+  document.querySelectorAll('.carousel-arrow').forEach((b) =>
+    b.addEventListener('click', () => goTo(active + Number(b.dataset.dir))));
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); goTo(active + 1); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(active - 1); }
+  });
+
+  // Drag with the mouse (touch & trackpads scroll natively)
+  let down = false, moved = false, startX = 0, startLeft = 0;
+  track.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!down) return;
+    const dx = e.clientX - startX;
+    if (!moved && Math.abs(dx) > 5) { moved = true; track.classList.add('is-dragging'); }
+    if (moved) track.scrollLeft = startLeft - dx;
+  });
+  window.addEventListener('pointerup', () => {
+    if (!down) return;
+    down = false;
+    if (moved) {
+      track.classList.remove('is-dragging');
+      update(); goTo(active);
+      setTimeout(() => { moved = false; }, 0);
+    }
+  });
+
+  // Clicking a side card brings it to the centre (instead of pressing its button)
+  cards.forEach((c, i) => c.addEventListener('click', (e) => {
+    if (moved || i !== active) { e.preventDefault(); e.stopPropagation(); if (!moved) goTo(i); }
+  }, true));
+
+  // Magnetic tilt on the centre card
+  if (!reduce) {
+    cards.forEach((c) => {
+      const inner = c.querySelector('.card-inner');
+      c.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse' || down || !c.classList.contains('is-active')) return;
+        const r = inner.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        inner.classList.add('is-magnet');
+        inner.style.setProperty('--tx', (px * 16).toFixed(1) + 'px');
+        inner.style.setProperty('--ty', (py * 16).toFixed(1) + 'px');
+        inner.style.setProperty('--roty', (px * 8).toFixed(2) + 'deg');
+        inner.style.setProperty('--rotx', (-py * 8).toFixed(2) + 'deg');
+        inner.style.setProperty('--gx', ((px + 0.5) * 100).toFixed(0) + '%');
+        inner.style.setProperty('--gy', ((py + 0.5) * 100).toFixed(0) + '%');
+      });
+      c.addEventListener('pointerleave', () => {
+        inner.classList.remove('is-magnet');
+        ['--tx', '--ty', '--rotx', '--roty'].forEach((p) => inner.style.removeProperty(p));
+      });
+    });
+
+    // Dock magnification (like the macOS dock): neighbours grow and make room
+    const BASE = 52;
+    dock.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const x = e.clientX - dock.getBoundingClientRect().left;
+      const scales = dockItems.map((b) => {
+        const d = Math.abs(x - (b.offsetLeft + b.offsetWidth / 2));
+        return 1 + 0.6 * Math.max(0, 1 - d / 130);
+      });
+      const extras = scales.map((s) => (s - 1) * BASE);
+      const total = extras.reduce((a, b) => a + b, 0);
+      let acc = 0;
+      dockItems.forEach((b, i) => {
+        const shift = acc + extras[i] / 2 - total / 2;
+        acc += extras[i];
+        b.style.transform = `translateX(${shift.toFixed(1)}px) scale(${scales[i].toFixed(3)})`;
+      });
+    });
+    dock.addEventListener('pointerleave', () => dockItems.forEach((b) => { b.style.transform = ''; }));
+  }
+})();
+</script>
+
+<!--
+  ============================================================
+  THEME TOGGLE — adds/removes `dark` on <html> and remembers it
+  ============================================================
+-->
+<script>
+(function () {
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const dark = document.documentElement.classList.toggle('dark');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+    window.dispatchEvent(new Event('themechange'));
+  });
+})();
+</script>
+
+<!--
+  ============================================================
+  HERO PARTICLES — flowing particle cloud
+  ============================================================
+  Thousands of tiny dots are carried by a smooth, swirling
+  "curl noise" wind and gently pulled toward your mouse, so they
+  gather around it as a living cloud. When the mouse leaves, the
+  cloud drifts on its own. Faded trails give the motion blur.
+    Light mode: black & grey dots with red and orange ones.
+    Dark mode:  white & grey dots with red and orange ones (on black).
+  👉 COLOURS: edit THEMES below (colours match the SHARES order).
+  👉 MORE / FEWER PARTICLES: edit DENSITY (lower = more).
+  👉 SPEED / SWIRL: edit FLOW and PULL.
+  ============================================================
+-->
+<script>
+(function () {
+  const canvas = document.getElementById('heroParticles');
+  const hero = document.getElementById('home');
+  if (!canvas || !hero) return;
+  const ctx = canvas.getContext('2d');
+  const root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const SHARES = [0.42, 0.20, 0.18, 0.20];     // share of particles per colour
+  const THEMES = {
+    light: { bg: '255, 255, 255', trail: 0.22, blend: 'source-over', alpha: 0.55,
+             colors: ['#0a0a0a', '#57534e', '#dc2626', '#f97316'] },   // black, grey, red, orange
+    dark:  { bg: '0, 0, 0',       trail: 0.2,  blend: 'lighter',     alpha: 0.85,
+             colors: ['#e7e5e4', '#78716c', '#ef4444', '#fb923c'] }    // white, grey, red, orange
+  };
+  const DENSITY = 250;                 // one particle per N square pixels
+  const MAX_PARTICLES = 9000;
+  const FREQ = 0.0022;                 // size of the swirls (lower = bigger swirls)
+  const FLOW = 0.12;                   // strength of the swirling wind
+  const PULL = 0.0006;                 // strength of the pull toward the mouse
+  const DAMPING = 0.93;
+
+  /* --- 3D simplex noise (x, y, time) — a smooth random field --- */
+  const perm = new Uint8Array(512);
+  (function () {
+    const p = Array.from({ length: 256 }, (_, i) => i);
+    for (let i = 255; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [p[i], p[j]] = [p[j], p[i]]; }
+    for (let i = 0; i < 512; i++) perm[i] = p[i & 255];
+  })();
+  const GR = [1,1,0, -1,1,0, 1,-1,0, -1,-1,0, 1,0,1, -1,0,1, 1,0,-1, -1,0,-1, 0,1,1, 0,-1,1, 0,1,-1, 0,-1,-1];
+  function corner(gi, x, y, z) {
+    let t = 0.6 - x * x - y * y - z * z;
+    if (t < 0) return 0;
+    t *= t;
+    const g = (gi % 12) * 3;
+    return t * t * (GR[g] * x + GR[g + 1] * y + GR[g + 2] * z);
+  }
+  function noise(xin, yin, zin) {
+    const F3 = 1 / 3, G3 = 1 / 6;
+    const s = (xin + yin + zin) * F3;
+    const i = Math.floor(xin + s), j = Math.floor(yin + s), k = Math.floor(zin + s);
+    const t = (i + j + k) * G3;
+    const x0 = xin - i + t, y0 = yin - j + t, z0 = zin - k + t;
+    let i1, j1, k1, i2, j2, k2;
+    if (x0 >= y0) {
+      if (y0 >= z0)      { i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 1; k2 = 0; }
+      else if (x0 >= z0) { i1 = 1; j1 = 0; k1 = 0; i2 = 1; j2 = 0; k2 = 1; }
+      else               { i1 = 0; j1 = 0; k1 = 1; i2 = 1; j2 = 0; k2 = 1; }
+    } else {
+      if (y0 < z0)       { i1 = 0; j1 = 0; k1 = 1; i2 = 0; j2 = 1; k2 = 1; }
+      else if (x0 < z0)  { i1 = 0; j1 = 1; k1 = 0; i2 = 0; j2 = 1; k2 = 1; }
+      else               { i1 = 0; j1 = 1; k1 = 0; i2 = 1; j2 = 1; k2 = 0; }
+    }
+    const ii = i & 255, jj = j & 255, kk = k & 255;
+    return 32 * (
+      corner(perm[ii + perm[jj + perm[kk]]], x0, y0, z0) +
+      corner(perm[ii + i1 + perm[jj + j1 + perm[kk + k1]]], x0 - i1 + G3, y0 - j1 + G3, z0 - k1 + G3) +
+      corner(perm[ii + i2 + perm[jj + j2 + perm[kk + k2]]], x0 - i2 + 2 * G3, y0 - j2 + 2 * G3, z0 - k2 + 2 * G3) +
+      corner(perm[ii + 1 + perm[jj + 1 + perm[kk + 1]]], x0 - 0.5, y0 - 0.5, z0 - 0.5)
+    );
+  }
+
+  /* --- particle state (typed arrays = fast) --- */
+  let W = 0, H = 0, N = 0, time = 0;
+  let X, Y, VX, VY, LIFE, groups = [];
+  let tx = null, ty = null;            // where the cloud is heading
+  let mx = null, my = null;            // mouse position (null = not over hero)
+  let lastDark = null;
+
+  const isDark = () => root.classList.contains('dark');
+  const theme = () => (isDark() ? THEMES.dark : THEMES.light);
+  const VH = () => Math.min(H, window.innerHeight);
+
+  function spawn(i, anywhere) {
+    if (anywhere) {
+      X[i] = Math.random() * W; Y[i] = Math.random() * VH();
+    } else {
+      const a = Math.random() * Math.PI * 2;
+      const r = Math.sqrt(Math.random()) * Math.min(W, VH()) * 0.35;
+      X[i] = tx + Math.cos(a) * r; Y[i] = ty + Math.sin(a) * r;
+    }
+    VX[i] = 0; VY[i] = 0;
+    LIFE[i] = 200 + Math.random() * 400;
+  }
+
+  function clear() {
+    ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1;
+    ctx.fillStyle = `rgb(${theme().bg})`; ctx.fillRect(0, 0, W, H);
+  }
+
+  function resize() {
+    W = hero.clientWidth; H = hero.clientHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (tx === null) { tx = W * 0.7; ty = VH() * 0.45; }
+    const n = Math.min(MAX_PARTICLES, Math.round((W * VH()) / DENSITY));
+    if (n !== N) {
+      N = n;
+      X = new Float32Array(N); Y = new Float32Array(N);
+      VX = new Float32Array(N); VY = new Float32Array(N); LIFE = new Float32Array(N);
+      groups = []; let start = 0;
+      SHARES.forEach((share, gi) => {
+        const end = gi === SHARES.length - 1 ? N : start + Math.round(N * share);
+        groups.push([start, end, gi]); start = end;
+      });
+      for (let i = 0; i < N; i++) spawn(i, true);
+    }
+    clear();
+  }
+
+  function step(dt) {
+    time += 0.0025 * dt;
+    // with no mouse, the cloud wanders slowly around the right half
+    const goalX = mx !== null ? mx : W * (0.68 + 0.18 * noise(time * 0.6, 10, 0));
+    const goalY = my !== null ? my : VH() * (0.5 + 0.25 * noise(20, time * 0.6, 0));
+    const ease = Math.min(1, 0.06 * dt);
+    tx += (goalX - tx) * ease; ty += (goalY - ty) * ease;
+
+    const e = 0.05, damp = Math.pow(DAMPING, dt);
+    for (let i = 0; i < N; i++) {
+      const nx = X[i] * FREQ, ny = Y[i] * FREQ;
+      // curl of the noise field = a swirling flow with no sinks
+      const cx =  (noise(nx, ny + e, time) - noise(nx, ny - e, time)) / (2 * e);
+      const cy = -(noise(nx + e, ny, time) - noise(nx - e, ny, time)) / (2 * e);
+      VX[i] = VX[i] * damp + (cx * FLOW + (tx - X[i]) * PULL) * dt;
+      VY[i] = VY[i] * damp + (cy * FLOW + (ty - Y[i]) * PULL) * dt;
+      X[i] += VX[i] * dt; Y[i] += VY[i] * dt;
+      LIFE[i] -= dt;
+      if (LIFE[i] <= 0 || X[i] < -50 || X[i] > W + 50 || Y[i] < -50 || Y[i] > H + 50) spawn(i, false);
+    }
+  }
+
+  function draw() {
+    const th = theme(), dark = isDark();
+    if (dark !== lastDark) { lastDark = dark; clear(); }
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = `rgba(${th.bg}, ${th.trail})`;
+    ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = th.blend;   // dark mode: overlapping dots add up and glow
+    ctx.globalAlpha = th.alpha;
+    const size = W < 700 ? 1.6 : 1.3;
+    for (const [a, b, gi] of groups) {
+      ctx.fillStyle = th.colors[gi];
+      for (let i = a; i < b; i++) ctx.fillRect(X[i], Y[i], size, size);
+    }
+  }
+
+  let last = 0, raf = 0;
+  function frame(now) {
+    const dt = Math.min(3, (now - last) / 16.67);
+    last = now;
+    step(dt); draw();
+    raf = requestAnimationFrame(frame);
+  }
+  function start() { if (!raf && !reduce) { last = performance.now(); raf = requestAnimationFrame(frame); } }
+  function stop() { cancelAnimationFrame(raf); raf = 0; }
+
+  hero.addEventListener('pointermove', (e) => {
+    const r = hero.getBoundingClientRect();
+    mx = e.clientX - r.left; my = e.clientY - r.top;
+  });
+  hero.addEventListener('pointerleave', () => { mx = null; my = null; });
+
+  new ResizeObserver(resize).observe(hero);
+  // only animate while the hero is on screen (saves battery)
+  new IntersectionObserver(([entry]) => entry.isIntersecting ? start() : stop()).observe(hero);
+
+  function stillFrame() { for (let k = 0; k < 150; k++) step(1); lastDark = null; draw(); }
+  window.addEventListener('themechange', () => { if (reduce) stillFrame(); });
+
+  resize();
+  if (reduce) stillFrame();
+})();
+</script>
+
+<!--
+  ============================================================
+  ASCII BLACK HOLE — footer animation
+  ============================================================
+  A black hole drawn entirely with text characters: brighter
+  spots use "denser" characters ( .:-=+*#%@ ).
+    • a black shadow in the middle with a thin glowing photon ring
+    • a tilted accretion disk that spins around it, brighter on
+      the left side (the side rushing toward you)
+    • the far side of the disk bent over the top and under the
+      bottom by gravity (the "halo" look)
+  Moving the mouse over it gently tilts the view.
+  👉 CHARACTERS: edit RAMP.  SIZE OF TEXT: edit CELL_W / CELL_H.
+  👉 SPIN SPEED: edit SPIN.
+  ============================================================
+-->
+<script>
+(function () {
+  const canvas = document.getElementById('blackHole');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const RAMP = ' .\'`:-~=+*cxoO#%@';
+  const CELL_W = 7, CELL_H = 11;
+  const SPIN = 0.9;
+  const DISK_IN = 1.6, DISK_OUT = 4.3;     // inner/outer disk radius (shadow radius = 1)
+
+  let W = 0, H = 0, cols = 0, rows = 0, unit = 1, time = 0;
+  let tilt = 0.2, tiltGoal = 0.2;          // how flat the disk looks (0 = edge-on)
+  let stars = [];
+
+  function resize() {
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const cw = W < 600 ? 5 : CELL_W, ch = W < 600 ? 8 : CELL_H;
+    cols = Math.floor(W / cw); rows = Math.floor(H / ch);
+    unit = Math.min(W / (2 * (DISK_OUT + 0.3)), H / (2 * 2.3));
+    stars = Array.from({ length: Math.round(cols * rows * 0.012) },
+      () => [Math.floor(Math.random() * cols), Math.floor(Math.random() * rows), Math.random()]);
+    ctx.font = `${ch + 1}px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace`;
+    ctx.textBaseline = 'top';
+  }
+
+  // brightness 0..1 of the disk at disk-radius rd and angle th
+  function disk(rd, th, x) {
+    if (rd < DISK_IN || rd > DISK_OUT) return 0;
+    const fall = Math.pow(1 - (rd - DISK_IN) / (DISK_OUT - DISK_IN), 1.4);
+    const swirl = th - time * SPIN * 2.2 / rd;           // inner parts spin faster
+    const streaks = 0.55 + 0.25 * Math.sin(swirl * 7 + rd * 4) * Math.sin(swirl * 3 - rd * 9)
+                         + 0.2 * Math.sin(rd * 13 - time * 0.7);
+    const doppler = 1 + 0.55 * (-x / rd);                 // left side brighter
+    return 1.35 * fall * streaks * doppler;
+  }
+
+  function render() {
+    ctx.clearRect(0, 0, W, H);
+    const cw = W / cols, ch = H / rows;
+    const k = tilt;
+    // background stars
+    ctx.fillStyle = 'rgba(245,245,244,0.35)';
+    for (const [sx, sy, tw] of stars) {
+      if (Math.sin(time * 2 + tw * 20) > -0.3) ctx.fillText('.', sx * cw, sy * ch);
+    }
+    for (let j = 0; j < rows; j++) {
+      const y = ((j + 0.5) * ch - H / 2) / unit;
+      for (let i = 0; i < cols; i++) {
+        const x = ((i + 0.5) * cw - W / 2) / unit;
+        const r = Math.sqrt(x * x + y * y);
+        const rd = Math.sqrt(x * x + (y / k) * (y / k));   // radius in the disk plane
+        const th = Math.atan2(y / k, x);
+        let b = 0;
+        if (y > 0 && rd >= DISK_IN && rd <= DISK_OUT) {
+          b = disk(rd, th, x);                               // near side of disk (in front)
+        } else if (r < 1) {
+          b = 0;                                             // the black shadow
+        } else {
+          if (y < 0) b = disk(rd, th, x) * 0.85;             // far side of disk
+          // far side bent over the top & under the bottom by gravity
+          const band = Math.exp(-Math.pow((r - 1.45) / 0.32, 2));
+          if (band > 0.02) {
+            const a = Math.atan2(y, x);
+            const lensStreak = 0.65 + 0.35 * Math.sin(a * 9 - time * SPIN * 1.6 + r * 6);
+            const under = y > 0 ? 0.6 : 1;                     // thinner halo underneath
+            b = Math.max(b, under * band * lensStreak * (0.35 + 0.65 * Math.abs(y) / r) * (1 + 0.3 * (-x / r)));
+          }
+          // photon ring
+          b = Math.max(b, Math.exp(-Math.pow((r - 1.06) / 0.05, 2)) * 0.95);
+        }
+        if (b <= 0.04) continue;
+        b = Math.min(1, b);
+        const ci = Math.min(RAMP.length - 1, Math.floor(b * (RAMP.length - 1)) + 1);
+        // dim chars grey, bright chars warm white
+        const l = Math.round(110 + 145 * b);
+        ctx.fillStyle = b > 0.7 ? `rgb(255, ${Math.round(225 + 25 * b)}, ${Math.round(180 + 40 * b)})` : `rgb(${l}, ${l}, ${l})`;
+        ctx.fillText(RAMP[ci], i * cw, j * ch);
+      }
+    }
+  }
+
+  let raf = 0, last = 0, acc = 0;
+  function frame(now) {
+    const dt = (now - last) / 1000; last = now; acc += dt;
+    if (acc >= 1 / 30) {                    // 30 fps is plenty for ASCII
+      time += acc; acc = 0;
+      tilt += (tiltGoal - tilt) * 0.08;
+      render();
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  function start() { if (!raf && !reduce) { last = performance.now(); raf = requestAnimationFrame(frame); } }
+  function stop() { cancelAnimationFrame(raf); raf = 0; }
+
+  canvas.addEventListener('pointermove', (e) => {
+    const r = canvas.getBoundingClientRect();
+    tiltGoal = 0.12 + 0.22 * ((e.clientY - r.top) / r.height);   // higher mouse = flatter disk
+  });
+  canvas.addEventListener('pointerleave', () => { tiltGoal = 0.2; });
+
+  new ResizeObserver(() => { resize(); render(); }).observe(canvas);
+  new IntersectionObserver(([entry]) => entry.isIntersecting ? start() : stop()).observe(canvas);
+  resize(); render();
+})();
 </script>
 
 </body>
