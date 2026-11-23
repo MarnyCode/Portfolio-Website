@@ -20,7 +20,7 @@
   smoothly instead of jumping. `lang="en"` helps screen readers
   and search engines know the page language.
 -->
-<html class="scroll-smooth" lang="en"><head>
+<html lang="en"><head>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -296,13 +296,13 @@
     --c-on-error: 105 0 5;
     --c-error-container: 147 0 10;
     --c-on-error-container: 255 218 214;
-    --c-background: 10 10 10;
+    --c-background: 0 0 0;
     --c-on-background: 245 245 244;
-    --c-surface: 10 10 10;
+    --c-surface: 0 0 0;
     --c-surface-bright: 28 28 28;
-    --c-surface-dim: 10 10 10;
+    --c-surface-dim: 0 0 0;
     --c-surface-container-lowest: 23 23 23;
-    --c-surface-container-low: 17 17 17;
+    --c-surface-container-low: 0 0 0;
     --c-surface-container: 28 28 28;
     --c-surface-container-high: 38 38 38;
     --c-surface-container-highest: 48 48 48;
@@ -395,7 +395,7 @@
     ============================================================
   */
   .contact-dark { background: #0a0a0a; color: #f5f5f4; transition: background-color .4s; }
-  html.dark .contact-dark { background: #000; border-top: 1px solid rgba(255,255,255,.08); }
+  html.dark .contact-dark { background: #000; }   /* same black as every other section */
   .footer-links a { position: relative; font-size: 1.25rem; font-weight: 500;
                     color: rgba(255,255,255,.8); transition: color .3s; }
   .footer-links a::after { content: ''; position: absolute; left: 0; bottom: -3px; height: 1px; width: 0;
@@ -1263,7 +1263,8 @@
     const card = cards[active] || cards[0];
     const r = card.getBoundingClientRect();
     const top = window.scrollY + r.top + r.height / 2 - window.innerHeight / 2;
-    window.scrollTo({ top: Math.max(0, top), behavior: smooth && !reduce ? 'smooth' : 'auto' });
+    if (smooth && window.smoothScrollTo) window.smoothScrollTo(top);
+    else window.scrollTo(0, Math.max(0, top));
   }
   document.querySelectorAll('a[href="#portfolio"]').forEach((a) => a.addEventListener('click', (e) => {
     e.preventDefault();
@@ -1350,6 +1351,65 @@
     });
     dock.addEventListener('pointerleave', () => dockItems.forEach((b) => { b.style.transform = ''; }));
   }
+})();
+</script>
+
+<!--
+  ============================================================
+  SMOOTH SCROLL — slower, gliding page scroll
+  ============================================================
+  Mouse-wheel and trackpad scrolling glide to a stop instead of
+  jumping. Links to sections (#about, #contact…) glide too.
+  Phones and tablets keep their normal touch scrolling, and it
+  switches off for people who turn off animations.
+  👉 SLOWER / FASTER: lower or raise SPEED (distance per wheel step).
+  👉 MORE / LESS GLIDE: lower or raise EASE (lower = longer glide).
+  ============================================================
+-->
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const SPEED = 0.8;
+  const EASE = 0.075;
+  let target = window.scrollY, current = window.scrollY, running = false;
+  const maxY = () => document.documentElement.scrollHeight - window.innerHeight;
+
+  function loop() {
+    current += (target - current) * EASE;
+    if (Math.abs(target - current) < 0.5) { current = target; running = false; }
+    window.scrollTo(0, current);
+    if (running) requestAnimationFrame(loop);
+  }
+  function go(y) {
+    target = Math.max(0, Math.min(maxY(), y));
+    if (!running) { current = window.scrollY; running = true; requestAnimationFrame(loop); }
+  }
+  window.smoothScrollTo = go;
+
+  // mouse wheel / trackpad (only on devices with a mouse or trackpad)
+  if (window.matchMedia('(pointer: fine)').matches) {
+    window.addEventListener('wheel', (e) => {
+      if (e.ctrlKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;   // pinch-zoom / sideways (carousel)
+      if (e.target.closest && e.target.closest('textarea')) return;       // let text boxes scroll themselves
+      e.preventDefault();
+      const d = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY;
+      go((running ? target : window.scrollY) + d * SPEED);
+    }, { passive: false });
+  }
+  // keyboard / scrollbar scrolling: stay in sync
+  window.addEventListener('scroll', () => { if (!running) { target = current = window.scrollY; } }, { passive: true });
+
+  // links to sections on this page glide as well
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || e.defaultPrevented) return;
+    const id = a.getAttribute('href');
+    const el = id.length > 1 && document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    history.replaceState(null, '', id);
+    go(el.getBoundingClientRect().top + window.scrollY);
+  });
 })();
 </script>
 
