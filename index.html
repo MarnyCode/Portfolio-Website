@@ -345,10 +345,10 @@
     border: 1px solid rgb(var(--c-outline-variant));
     transition: transform .4s cubic-bezier(.34,1.45,.64,1), background-color .4s, color .4s;
   }
-  .theme-toggle:hover { transform: translateY(-50%) rotate(25deg) scale(1.06); }
-  .theme-toggle .icon-sun { display: none; }
-  html.dark .theme-toggle .icon-sun { display: inline; }
-  html.dark .theme-toggle .icon-moon { display: none; }
+  .theme-toggle:hover { transform: translateY(-50%) scale(1.08); }
+  /* light mode: right half filled — dark mode: spins over so the left half is filled */
+  .theme-icon { transition: transform .7s cubic-bezier(.34,1.45,.64,1); }
+  html.dark .theme-icon { transform: rotate(180deg); }
 
   /* Headline + buttons slide up gently when the page loads */
   .reveal { opacity: 0; transform: translateY(24px);
@@ -566,8 +566,11 @@
 
       <!-- LIGHT / DARK toggle (top-right). Script: "THEME TOGGLE" at the bottom. -->
       <button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch between light and dark mode">
-        <span class="material-symbols-outlined icon-moon" aria-hidden="true">dark_mode</span>
-        <span class="material-symbols-outlined icon-sun" aria-hidden="true">light_mode</span>
+        <!-- half-filled circle: filled side flips over when the mode changes -->
+        <svg class="theme-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/>
+        </svg>
       </button>
 
       <!-- 
@@ -823,35 +826,54 @@
           </div>
 
           <!-- ── SKILLS PANEL (visible by default) ── -->
-          <div id="panel-skills" class="tab-panel grid grid-cols-2 gap-8">
-            <!-- Column 1: Technical Stack -->
-            <div class="space-y-4">
-              <h4 class="font-headline font-bold text-on-surface">ML, AI and Data Stack</h4>
-              <ul class="space-y-2 text-on-surface-variant text-sm">
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Scikit-Learn, NumPy, Pandas &amp; MatplotLib</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Feature Engineering &amp; Hyperparameter Tuning (Grid/RandomizedSearch)</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Regression, Classification, & Cross-Validation</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> EEG-based Attention Tracking & Signal Processing</li>
-              </ul>
+          <div id="panel-skills" class="tab-panel space-y-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <!-- 👉 Each block = one skills group. Copy an <li> to add a skill. -->
+              <div class="space-y-4">
+                <h4 class="font-headline font-bold text-on-surface">Languages</h4>
+                <ul class="space-y-2 text-on-surface-variant text-sm">
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Python (NumPy, Pandas, SciPy)</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> C, C++, Java</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> SQL (PostgreSQL), Bash</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> VHDL</li>
+                </ul>
+              </div>
+              <div class="space-y-4">
+                <h4 class="font-headline font-bold text-on-surface">Data &amp; Machine Learning</h4>
+                <ul class="space-y-2 text-on-surface-variant text-sm">
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Scikit-Learn, Statsmodels</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Matplotlib, Seaborn</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Time Series Analysis, Linear Regression</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Signal processing (FFT, Power Spectral Density)</li>
+                </ul>
+              </div>
+              <div class="space-y-4">
+                <h4 class="font-headline font-bold text-on-surface">Hardware &amp; Systems</h4>
+                <ul class="space-y-2 text-on-surface-variant text-sm">
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Altium Designer &amp; PCB design workflows</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Digital Logic &amp; Circuit Design</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Linux / Unix</li>
+                </ul>
+              </div>
+              <div class="space-y-4">
+                <h4 class="font-headline font-bold text-on-surface">Tools &amp; Finance</h4>
+                <ul class="space-y-2 text-on-surface-variant text-sm">
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Git, GitHub, VS Code, IntelliJ, Jupyter</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Financial Markets, Equity &amp; Fixed Income Basics</li>
+                  <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary shrink-0"></span> Valuation &amp; Risk Analysis</li>
+                </ul>
+              </div>
             </div>
-            <!-- Column 2: Specializations -->
-            <div class="space-y-4">
-              <h4 class="font-headline font-bold text-on-surface">Systems &amp; Hardware</h4>
-              <ul class="space-y-2 text-on-surface-variant text-sm">
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Python, Java, C, C++, Bash</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> VHDL/Verilog, FPGA Design (Quartus/ModelSim)</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Autonomous Path-finding, Sensor Integration (Ultrasonic/Color/Touch)</li>
-                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> PCB Development & Circuit Reliability (Formula Electric)</li>
-              </ul>
-            </div>
+            <p class="text-on-surface-variant text-sm"><span class="font-headline font-bold text-on-surface">Spoken languages:</span> bilingual French &amp; English</p>
           </div>
 
           <!-- ── EDUCATION PANEL (hidden by default) ── -->
           <div id="panel-education" class="tab-panel hidden space-y-6">
             <!-- Education entry 1 — edit as needed -->
             <div class="space-y-1">
-              <p class="font-headline font-bold text-on-surface text-base">McGill University | Bachelor of Computer Engineering</p>
-              <p class="text-on-surface-variant text-sm">B.Eng. Computer Engineering &mdash; Expected 2028</p>
+              <p class="font-headline font-bold text-on-surface text-base">McGill University | Bachelor of Engineering, Computer Engineering</p>
+              <p class="text-on-surface-variant text-sm">AI &amp; ML focus &mdash; Aug 2024 to May 2028 (expected) &middot; <span class="font-bold text-on-surface">3.88 GPA</span></p>
+              <p class="text-on-surface-variant text-xs leading-relaxed pt-1">Relevant coursework: Algorithms &amp; Data Structures, Discrete Structures, Software Systems, Digital Logic, Circuit Design, Model-Based Programming, Engineering Economy, Law for Engineers.</p>
             </div>
             <div class="w-full h-px bg-outline-variant/20"></div>
             <!-- Education entry 2 — edit as needed -->
@@ -1100,7 +1122,10 @@
     submitBtn.disabled = true;
 
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-      .then(response => {
+      .then(response => response.json())
+      .then(data => {
+        // the Google Script answers {result: 'success'} or {result: 'error', error: '…'}
+        if (!data || data.result !== 'success') throw new Error((data && data.error) || 'Unknown error');
         msg.innerHTML = "Message sent successfully! I'll be in touch.";
         submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
@@ -1185,6 +1210,18 @@
       setTimeout(() => icon.classList.add('is-active'), 900 + i * 220);
       setTimeout(() => icon.classList.remove('is-active'), 2000 + i * 220);
     });
+  }
+
+  // Touch screens can't hover, so splash the icons one after another every few seconds
+  if (!reduce && window.matchMedia('(hover: none)').matches) {
+    const icons = Array.from(document.querySelectorAll('.goo-icon'));
+    let k = 0;
+    setInterval(() => {
+      const icon = icons[k++ % icons.length];
+      icon.dispatchEvent(new Event('pointerenter'));       // new random splash
+      icon.classList.add('is-active');
+      setTimeout(() => icon.classList.remove('is-active'), 1100);
+    }, 2600);
   }
 
   /* ---------- About photo: slight movement toward the mouse ---------- */
